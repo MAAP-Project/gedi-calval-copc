@@ -1,7 +1,7 @@
 [project]
-name = "stactools-ephemeral"
+name = "stactools-gedi-calval-copc"
 version = "0.1.0"
-description = "PROVIDE DESCRIPTION HERE"
+description = "This is a stactools package for GEDI Cal/Val LiDAR data to COPC conversion"
 readme = "README.md"
 authors = [{ name = "Your name here", email = "your-email@example.com" }]
 maintainers = [{ name = "Your name here", email = "your-email@example.com" }]
@@ -34,8 +34,8 @@ dev = [
 docs = ["pystac~=1.8", "ipykernel~=6.25", "jinja2~=3.1"]
 
 [project.urls]
-Github = "https://github.com/stactools-packges/ephemeral"
-Issues = "https://github.com/stactools-packges/ephemeral/issues"
+Github = "https://github.com/stactools-packges/gedi-calval-copc"
+Issues = "https://github.com/stactools-packges/gedi-calval-copc/issues"
 
 [build-system]
 requires = ["setuptools", "wheel"]

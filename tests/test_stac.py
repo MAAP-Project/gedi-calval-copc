@@ -1,4 +1,4 @@
-from stactools.ephemeral import stac
+from stactools.gedi_calval_copc import stac
 
 from . import test_data
 
