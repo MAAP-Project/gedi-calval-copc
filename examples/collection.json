@@ -1,42 +1,52 @@
 {
   "type": "Collection",
-  "id": "example-collection",
+  "id": "GEDI_CalVal_Lidar_COPC",
   "stac_version": "1.0.0",
-  "description": "An example collection",
+  "description": "Cloud Optimized Point Cloud (COPC) version for the Global Ecosystem Dynamics Investigation (GEDI) Calibration/Validation Airborne Lidar Dataset",
   "links": [
     {
       "rel": "root",
       "href": "./collection.json",
       "type": "application/json",
-      "title": "Example collection"
+      "title": "GEDI CalVal Lidar COPC"
     },
     {
       "rel": "item",
-      "href": "./example-item/example-item.json",
+      "href": "./usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.json",
       "type": "application/json"
     }
   ],
-  "custom_attribute": "foo",
-  "title": "Example collection",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+  ],
+  "title": "GEDI CalVal Lidar COPC",
   "extent": {
     "spatial": {
       "bbox": [
         [
-          -61.287624,
-          72.229798,
-          -52.301599,
-          74.622043
+          -110.9584934,
+          31.78169997,
+          -219.8,
+          -110.899636
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2023-09-12T11:48:03.199913Z",
-          "2023-09-12T11:48:03.199913Z"
+          "2019-09-13T14:00:00Z",
+          "2019-09-13T23:59:59Z"
         ]
       ]
     }
   },
-  "license": "proprietary"
+  "license": "proprietary",
+  "keywords": [
+    "LIDAR",
+    "GEDI",
+    "CALVAL",
+    "COPC",
+    "POINTCLOUD"
+  ]
 }

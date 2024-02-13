@@ -6,12 +6,10 @@
 - Name: gedi-calval-copc
 - Package: `stactools.gedi_calval_copc`
 - [stactools-gedi-calval-copc on PyPI](https://pypi.org/project/stactools-gedi-calval-copc/)
-- Owner: @githubusername
-- [Dataset homepage](http://example.com)
+- Owner: @jjfrench @omshinde
 - STAC extensions used:
   - [proj](https://github.com/stac-extensions/projection/)
-- Extra fields:
-  - `gedi-calval-copc:custom`: A custom attribute
+  - [pointcloud](htts://github.com/stac-extensions/pointcloud/)
 - [Browse the example in human-readable form](https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/gedi-calval-copc/main/examples/collection.json)
 - [Browse a notebook demonstrating the example item and collection](https://github.com/stactools-packages/gedi-calval-copc/tree/main/docs/example.ipynb)
 
