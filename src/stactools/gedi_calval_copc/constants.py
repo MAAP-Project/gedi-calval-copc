@@ -36,4 +36,4 @@ SPATIAL_EXTENT = SpatialExtent(
 )
 EXTENT = Extent(SPATIAL_EXTENT, TEMPORAL_EXTENT)
 KEYWORDS = ["LIDAR", "GEDI", "CALVAL", "COPC", "POINTCLOUD"]
-DESCRIPTION = "Cloud Optimized Point Cloud (COPC) version for the Global Ecosystem Dynamics Investigation (GEDI) Calibration/Validation Airborne Lidar Dataset"  # noqa
+DESCRIPTION = "Cloud Optimized Point Cloud (COPC) version for the Global Ecosystem Dynamics Investigation (GEDI) Calibration/Validation Airborne Lidar Dataset"

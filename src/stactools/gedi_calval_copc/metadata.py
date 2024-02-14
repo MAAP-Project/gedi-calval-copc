@@ -20,7 +20,7 @@ def convert_to_copc(las_filename: str, output_location: str) -> str:
 
     import pdal
 
-    base_name, _ = os.path.splitext(las_filename)
+    base_name, _ = os.path.splitext(path.basename(las_filename))
     copc_filename = f"{base_name}.copc.laz"
 
     r = pdal.Reader.las(filename=las_filename)
@@ -141,7 +141,30 @@ def fill_pointcloud_metadata(
 
 
 def fill_projection_metadata(
-    proj_ext: ProjectionExtension[T], info: Dict[str, Any]
+    proj_ext: ProjectionExtension[T],
+    info: Dict[str, Any],
+    boundary: Dict[str, Any],
+    stats: Dict[str, Any],
 ) -> None:
+    from pyproj import CRS
+
     proj_ext.projjson = info["srs"]["json"]
-    print(info["srs"]["horizontal"])
+
+    try:
+        obj = stats["bbox"]["native"]["bbox"]
+        proj_ext.bbox = [
+            float(obj["minx"]),
+            float(obj["miny"]),
+            float(obj["minz"]),
+            float(obj["maxx"]),
+            float(obj["maxy"]),
+            float(obj["maxz"]),
+        ]
+    except KeyError:
+        proj_ext.bbox = None
+
+    proj_ext.geometry = boundary["boundary_json"]
+
+    p = CRS.from_string(info["srs"]["horizontal"])
+    item_proj_ext = p.to_wkt("WKT2_2019")
+    proj_ext.wkt2 = item_proj_ext

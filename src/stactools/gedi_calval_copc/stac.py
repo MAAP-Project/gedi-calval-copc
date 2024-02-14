@@ -1,10 +1,9 @@
-from datetime import datetime, timezone  # noqa: I001
+from datetime import datetime, timezone
 from os import path
 
 from pystac import Asset, Collection, Item
 from pystac.extensions.pointcloud import PointcloudExtension
 from pystac.extensions.projection import ProjectionExtension
-
 from stactools.gedi_calval_copc import constants as c
 from stactools.gedi_calval_copc.metadata import (
     Metadata,
@@ -71,7 +70,7 @@ def create_item(source: str) -> Item:
         Asset(
             title="COPC LAZ file",
             media_type="application/vnd.laszip+copc",
-            description="Cloud Optimized Point Cloud (COPC) converted GEDI CalVal Airborne Lidar LAS data.",  # noqa
+            description="Cloud Optimized Point Cloud (COPC) converted GEDI CalVal Airborne Lidar LAS data.",
             roles=["data"],
             href=source,
         ),
@@ -83,6 +82,8 @@ def create_item(source: str) -> Item:
     )
 
     projection = ProjectionExtension.ext(item, add_if_missing=True)
-    fill_projection_metadata(projection, _metadata.info)
+    fill_projection_metadata(
+        projection, _metadata.info, _metadata.boundary, _metadata.stats
+    )
 
     return item
