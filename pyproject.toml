@@ -3,8 +3,11 @@ name = "stactools-gedi-calval-copc"
 version = "1.0.0"
 description = "This is a stactools package for GEDI Cal/Val LiDAR data to COPC conversion"
 readme = "README.md"
-authors = [{ name = "Your name here", email = "your-email@example.com" }]
-maintainers = [{ name = "Your name here", email = "your-email@example.com" }]
+authors = [
+    { name = "Jamison French", email = "jamison@developmentseed.org" },
+    { name = "Rajat Shinde", email = "rs0170@uah.edu"}
+]
+maintainers = [{ name = "Jamison French", email = "jamison@developmentseed.org" }]
 keywords = ["stactools", "pystac", "catalog", "STAC", "GEDI", "COPC"]
 license = { text = "Apache-2.0" }
 classifiers = [
@@ -19,7 +22,10 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 requires-python = ">=3.8"
-dependencies = ["stactools>=0.4.0"]
+dependencies = [
+    "stactools>=0.4.0",
+    "pyproj>=3.6",
+]
 
 [project.optional-dependencies]
 dev = [
@@ -53,3 +59,6 @@ mypy_path = "src"
 
 [tool.ruff]
 select = ["E", "F", "I"]
+ignore = [
+    "E501",  # line too long, handled by black
+]

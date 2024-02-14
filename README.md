@@ -1,8 +1,5 @@
 # stactools-gedi-calval-copc
 
-[![PyPI](https://img.shields.io/pypi/v/stactools-gedi-calval-copc?style=for-the-badge)](https://pypi.org/project/stactools-gedi-calval-copc/)
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/stactools-packages/gedi-calval-copc/continuous-integration.yml?style=for-the-badge)
-
 - Name: gedi-calval-copc
 - Package: `stactools.gedi_calval_copc`
 - [stactools-gedi-calval-copc on PyPI](https://pypi.org/project/stactools-gedi-calval-copc/)
@@ -10,15 +7,11 @@
 - STAC extensions used:
   - [proj](https://github.com/stac-extensions/projection/)
   - [pointcloud](htts://github.com/stac-extensions/pointcloud/)
-- [Browse the example in human-readable form](https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/gedi-calval-copc/main/examples/collection.json)
-- [Browse a notebook demonstrating the example item and collection](https://github.com/stactools-packages/gedi-calval-copc/tree/main/docs/example.ipynb)
-
-A short description of the package and its usage.
 
 ## STAC examples
 
 - [Collection](examples/collection.json)
-- [Item](examples/item/item.json)
+- [Item](examples/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.json)
 
 ## Installation
 
@@ -30,8 +23,20 @@ pip install stactools-gedi-calval-copc
 
 Description of the command line functions
 
+For generating STAC items from COPC files, use the following command:
+
 ```shell
-stac gedi-calval-copc create-item source destination
+stac gedicalvalcopc create-item <source> <destination>
+stac gedicalvalcopc create-item tests/data/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.copc.laz examples
+```
+
+For converting LAS files to COPC.LAZ, use the '--copc' flag
+to first generate the COPC file and then generate the STAC item
+using the COPC.LAZ destination location:
+
+```shell
+stac gedicalvalcopc create-item <source> <destination> --copc
+stac gedicalvalcopc create-item tests/data/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.las examples -copc
 ```
 
 Use `stac gedi-calval-copc --help` to see all subcommands and options.
