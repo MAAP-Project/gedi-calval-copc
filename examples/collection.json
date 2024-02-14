@@ -18,8 +18,19 @@
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/pointcloud/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
   ],
+  "item_assets": {
+    "copc.laz": {
+      "title": "COPC LAZ file",
+      "description": "Cloud Optimized Point Cloud (COPC) converted GEDI CalVal Airborne Lidar LAS data.",
+      "type": "application/vnd.laszip+copc",
+      "roles": [
+        "data"
+      ]
+    }
+  },
   "title": "GEDI CalVal Lidar COPC",
   "extent": {
     "spatial": {
