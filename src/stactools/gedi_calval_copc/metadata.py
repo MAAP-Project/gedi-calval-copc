@@ -23,9 +23,20 @@ def convert_to_copc(las_filename: str, output_location: str) -> str:
     base_name, _ = os.path.splitext(path.basename(las_filename))
     copc_filename = f"{base_name}.copc.laz"
 
-    r = pdal.Reader.las(filename=las_filename)
-    w = pdal.Writer.copc(filename=f"{output_location}/{copc_filename}")
-    pipeline: pdal.Pipeline = r | w
+    pdal_pipeline = {
+        "pipeline": [
+            {
+                "type": "readers.las",
+                "filename": las_filename,
+            },
+            {
+                "type": "writers.copc",
+                "filename": f"{output_location}/{copc_filename}",
+            },
+        ]
+    }
+    pdal_pipeline_json = json.dumps(pdal_pipeline)
+    pipeline = pdal.Pipeline(pdal_pipeline_json)
     pipeline.execute()
 
     return f"{output_location}/{copc_filename}"
