@@ -14,7 +14,18 @@
         "DOCKER_WORKDIR": "/workspace"
       }
     },
-  
+    "mounts": [
+      {
+        "source": "${localEnv:HOME}/.aws",
+        "target": "/root/.aws",
+        "type": "bind"
+      },
+      {
+        "source": "${localEnv:HOME}/.ssh",
+        "target": "/root/.ssh",
+        "type": "bind"
+      }
+    ],
     // Set *default* container specific settings.json values on container create.
     "settings": {
       "python.defaultInterpreterPath": "/opt/conda/bin/python",
@@ -30,7 +41,7 @@
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
       "ms-python.python",
-      "ms-python.vscode-pylance"
+      "ms-toolsai.jupyter"
     ]
   
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
