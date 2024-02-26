@@ -53,26 +53,6 @@
         "type": "unsigned"
       },
       {
-        "name": "Synthetic",
-        "size": 1,
-        "type": "unsigned"
-      },
-      {
-        "name": "KeyPoint",
-        "size": 1,
-        "type": "unsigned"
-      },
-      {
-        "name": "Withheld",
-        "size": 1,
-        "type": "unsigned"
-      },
-      {
-        "name": "Overlap",
-        "size": 1,
-        "type": "unsigned"
-      },
-      {
         "name": "ScanAngleRank",
         "size": 4,
         "type": "floating"
@@ -94,6 +74,11 @@
       },
       {
         "name": "ScanChannel",
+        "size": 1,
+        "type": "unsigned"
+      },
+      {
+        "name": "ClassFlags",
         "size": 1,
         "type": "unsigned"
       }
@@ -240,38 +225,8 @@
         "variance": 0
       },
       {
-        "name": "Synthetic",
+        "name": "ClassFlags",
         "position": 14,
-        "average": 0,
-        "count": 5657309,
-        "maximum": 0,
-        "minimum": 0,
-        "stddev": 0,
-        "variance": 0
-      },
-      {
-        "name": "KeyPoint",
-        "position": 15,
-        "average": 0,
-        "count": 5657309,
-        "maximum": 0,
-        "minimum": 0,
-        "stddev": 0,
-        "variance": 0
-      },
-      {
-        "name": "Withheld",
-        "position": 16,
-        "average": 0,
-        "count": 5657309,
-        "maximum": 0,
-        "minimum": 0,
-        "stddev": 0,
-        "variance": 0
-      },
-      {
-        "name": "Overlap",
-        "position": 17,
         "average": 0,
         "count": 5657309,
         "maximum": 0,
@@ -280,6 +235,7 @@
         "variance": 0
       }
     ],
+    "pc:encoding": "LASzip",
     "pc:count": 5657309,
     "pc:type": "lidar",
     "proj:projjson": {
