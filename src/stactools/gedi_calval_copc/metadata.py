@@ -1,6 +1,6 @@
 import json
 from os import path
-from typing import Any, Dict, TypeVar
+from typing import Any, Dict, List, TypeVar
 
 from pystac import Asset, Item
 from pystac.extensions.pointcloud import (
@@ -63,7 +63,7 @@ class Metadata:
         self.info = pipeline.metadata["metadata"][i.type]
         self.copc = pipeline.metadata["metadata"][r.type]
 
-        def convertBBox(obj: Dict[str, Any]) -> list[float]:
+        def convertBBox(obj: Dict[str, Any]) -> List[float]:
             output = []
             output.append(float(obj["minx"]))
             output.append(float(obj["miny"]))
