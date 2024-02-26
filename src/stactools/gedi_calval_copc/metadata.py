@@ -135,6 +135,7 @@ def fill_pointcloud_metadata(
     except KeyError:
         stats_list = []
     pc_ext.statistics = stats_list
+    pc_ext.encoding = "LASzip"
 
     pc_ext.count = copc["count"]
     pc_ext.type = PhenomenologyType.LIDAR
