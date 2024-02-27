@@ -10,9 +10,15 @@ root = Path(__file__).parents[1]
 examples = root / "examples"
 
 collection = stactools.gedi_calval_copc.stac.create_collection()
-item = stactools.gedi_calval_copc.stac.create_item(str(root / "tests" / "data" / "asset.tif"))
+item = stactools.gedi_calval_copc.stac.create_item(
+    source=str(
+        root
+        / "tests"
+        / "data"
+        / "usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.copc.laz"
+    ),
+)
 collection.add_item(item)
-collection.update_extent_from_items()
 collection.normalize_hrefs(str(examples))
 collection.make_all_asset_hrefs_relative()
 if examples.exists():

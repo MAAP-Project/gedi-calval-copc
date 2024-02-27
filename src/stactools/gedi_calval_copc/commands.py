@@ -3,6 +3,7 @@ import logging
 import click
 from click import Command, Group
 from stactools.gedi_calval_copc import stac
+from stactools.gedi_calval_copc.metadata import convert_to_copc
 
 logger = logging.getLogger(__name__)
 
@@ -35,14 +36,23 @@ def create_gedicalvalcopc_command(cli: Group) -> Command:
     @gedicalvalcopc.command("create-item", short_help="Create a STAC item")
     @click.argument("source")
     @click.argument("destination")
-    def create_item_command(source: str, destination: str) -> None:
+    @click.option("-copc", "--copc", is_flag=True, help="Convert source to COPC format")
+    def create_item_command(source: str, destination: str, copc: bool) -> None:
         """Creates a STAC Item
 
         Args:
             source: HREF of the Asset associated with the Item
             destination: An HREF for the STAC Item
+            copc: Convert source to COPC format
         """
+        if copc:
+            source = convert_to_copc(source, destination)
         item = stac.create_item(source)
-        item.save_object(dest_href=destination)
+        item_path = f"{destination}/{item.id}.json"
+        item.set_self_href(item_path)
+
+        # item.validate()
+
+        item.save_object(dest_href=item_path)
 
     return gedicalvalcopc
