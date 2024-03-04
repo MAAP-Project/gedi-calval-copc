@@ -23,7 +23,8 @@ def test_create_item() -> None:
     item = stac.create_item(
         test_data.get_path(
             "data/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.copc.laz"
-        )
+        ),
+        "examples/usa_neonsrer_2019_NEON_D14_SRER_DP1_L090-1_2019091314_unclassified_point_cloud_0000003.json",
     )
     assert (
         item.id

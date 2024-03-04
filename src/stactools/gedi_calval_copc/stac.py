@@ -8,6 +8,7 @@ from pystac.extensions.projection import ProjectionExtension
 from stactools.gedi_calval_copc import constants as c
 from stactools.gedi_calval_copc.metadata import (
     Metadata,
+    convert_to_copc,
     fill_pointcloud_metadata,
     fill_projection_metadata,
 )
@@ -54,7 +55,7 @@ def create_collection() -> Collection:
     return collection
 
 
-def create_item(source: str) -> Item:
+def create_item(source: str, destination: str, copc: bool = False) -> Item:
     """Creates a STAC item.
 
     See `the STAC specification
@@ -69,6 +70,9 @@ def create_item(source: str) -> Item:
     Returns:
         Item: STAC Item object
     """
+    if copc:
+        source = convert_to_copc(source, destination)
+
     _metadata = Metadata(source)
     item = Item(
         id=_metadata.id,
