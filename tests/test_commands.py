@@ -18,7 +18,7 @@ def test_create_collection(tmp_path: Path) -> None:
     path = str(tmp_path / "collection.json")
     runner = CliRunner()
     result = runner.invoke(command, ["create-collection", path])
-    assert result.exit_code == 0, "\n{}".format(result.output)
+    assert result.exit_code == 0, f"\n{result.output}"
     collection = Collection.from_file(path)
     collection.validate()
 
