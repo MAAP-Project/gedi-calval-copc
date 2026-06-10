@@ -16,8 +16,8 @@ COPY src/stactools/gedi_calval_copc/__init__.py src/stactools/gedi_calval_copc/
 RUN apt-get -y -q update \
     && apt-get -y -q install build-essential \
     && rm -rf /var/lib/apt/lists/
-RUN pip install .
-RUN rm -r /opt/conda/lib/python3.11/site-packages/stactools/gedi_calval_copc
+RUN pip install . \
+    && rm -rf /opt/conda/lib/python*/site-packages/stactools/gedi_calval_copc
 
 
 FROM dependencies as builder
