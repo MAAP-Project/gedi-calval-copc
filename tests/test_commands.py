@@ -3,6 +3,7 @@ from pathlib import Path
 from click import Group
 from click.testing import CliRunner
 from pystac import Collection, Item
+
 from stactools.gedi_calval_copc.commands import create_gedicalvalcopc_command
 
 from . import test_data
