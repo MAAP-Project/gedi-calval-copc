@@ -51,9 +51,6 @@ Issues = "https://github.com/stactools-packges/gedi-calval-copc/issues"
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.isort]
-profile = "black"
-
 [tool.mypy]
 explicit_package_bases = true
 namespace_packages = true
