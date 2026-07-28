@@ -5,6 +5,7 @@ from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.extensions.pointcloud import PointcloudExtension
 from pystac.extensions.projection import ProjectionExtension
+
 from stactools.gedi_calval_copc import constants as c
 from stactools.gedi_calval_copc.metadata import (
     Metadata,

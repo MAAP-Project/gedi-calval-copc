@@ -3,8 +3,9 @@
 import shutil
 from pathlib import Path
 
-import stactools.gedi_calval_copc.stac
 from pystac import CatalogType
+
+import stactools.gedi_calval_copc.stac
 
 root = Path(__file__).parents[1]
 examples = root / "examples"

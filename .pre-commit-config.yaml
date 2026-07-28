@@ -21,6 +21,6 @@ repos:
           - click != 8.1.0
           - stactools
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.16
+    rev: v0.16.0
     hooks:
       - id: ruff

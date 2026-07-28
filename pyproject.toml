@@ -26,20 +26,16 @@ dependencies = [
     "stactools>=0.4.0",
     "s3fs", 
     "requests",
-    "pdal",
-    "python-pdal",
-    "pyproj>=3.6.0"
 ]
 
 [project.optional-dependencies]
 dev = [
-    "black~=23.9",
     "codespell~=2.2",
     "mypy~=1.5",
-    "pre-commit~=3.4",
+    "pre-commit==4.6.1",
     "pytest-cov~=4.1",
     "pytest~=7.4",
-    "ruff==0.0.288",
+    "ruff==0.16.0",
 ]
 docs = ["pystac~=1.8", "ipykernel~=6.25", "jinja2~=3.1"]
 
@@ -58,8 +54,9 @@ show_error_codes = true
 strict = true
 mypy_path = "src"
 
-[tool.ruff]
+[tool.ruff.lint]
 select = ["E", "F", "I"]
 ignore = [
-    "E501",  # line too long, handled by black
+    "F401",  # module imported but unused
+    "E501",
 ]
