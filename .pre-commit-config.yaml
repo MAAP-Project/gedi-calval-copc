@@ -14,13 +14,13 @@ repos:
         args: [--ignore-words=.codespellignore]
         types_or: [jupyter, markdown, python, shell]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.3.0
+    rev: v2.3.1
     hooks:
       - id: mypy
         additional_dependencies:
           - click != 8.1.0
           - stactools
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.1
+    rev: v0.16.5
     hooks:
       - id: ruff
